@@ -1,7 +1,12 @@
 import GameBoard from "../gameboard";
 
-test("GameBoard class returns a properly sized grid", () => {
+describe("Game Board class", () => {
   const grid = new GameBoard("player");
-  grid.generateBoard();
-  expect(grid.board.length).toEqual(100);
+  beforeEach(() => {
+    grid.generateBoard();
+  });
+
+  test("returns a properly sized grid", () => {
+    expect(grid.board.length).toBe(100);
+  });
 });
