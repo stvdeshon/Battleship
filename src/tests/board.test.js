@@ -7,6 +7,11 @@ describe("Game Board class", () => {
   });
 
   test("returns a properly sized grid", () => {
-    expect(grid.board.length).toBe(100);
+    expect(grid.board.length).toBe(10);
+    expect(grid.board.flat().length).toBe(100);
+  });
+
+  test("index value is null", () => {
+    expect(grid.board[0][0]).toBe(null);
   });
 });

@@ -1,13 +1,14 @@
 export default class GameBoard {
   constructor(owner) {
     this.owner = owner;
-    this.board = [];
+    this.board = new Array(10);
   }
 
   generateBoard() {
-    for (let i = 0; i < 100; i++) {
-      this.board.push(i);
+    for (let i = 0; i < this.board.length; i++) {
+      this.board[i] = new Array(10).fill(null);
     }
+    return this.board;
   }
 
   placeShip() {
