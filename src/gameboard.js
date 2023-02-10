@@ -2,6 +2,7 @@ export default class GameBoard {
   constructor(owner) {
     this.owner = owner;
     this.board = new Array(10);
+    this.fleet = [];
   }
 
   generateBoard() {
@@ -11,8 +12,16 @@ export default class GameBoard {
     return this.board;
   }
 
-  placeShip() {
-    //for placing ships in eligible cells by instantiating ships
+  addShips(ship) {
+    if (this.fleet.includes(ship)) {
+      return;
+    } else {
+      this.fleet.push(ship);
+    }
+  }
+
+  placeShip(ship, row, col) {
+    return (this.board[row][col] = ship.name);
   }
 
   receiveAttack() {
@@ -25,6 +34,3 @@ export default class GameBoard {
     //or perhaps whether all the ship objects return 1 on isSunk()
   }
 }
-
-/*on this Battleship grid, the x-axis is A-J from left to right
-and the y-axis is 1-10 descending from top to bottom*/
