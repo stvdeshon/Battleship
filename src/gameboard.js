@@ -1,12 +1,12 @@
 export default class GameBoard {
   constructor(owner) {
     this.owner = owner;
-    this.board = new Array(10);
+    this.board = [];
     this.fleet = [];
   }
 
   generateBoard() {
-    for (let i = 0; i < this.board.length; i++) {
+    for (let i = 0; i < 10; i++) {
       this.board[i] = new Array(10).fill(null);
     }
     return this.board;
@@ -30,7 +30,6 @@ export default class GameBoard {
   }
 
   gameOver() {
-    //win/loss is displayed depending on however many occupied cells there are
-    //or perhaps whether all the ship objects return 1 on isSunk()
+    //player loses if this.fleet returns true for every ship's isSunk() method
   }
 }

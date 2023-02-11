@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676068089979" clover="3.2.0">
-  <project timestamp="1676068089979" name="All files">
+<coverage generated="1676135723537" clover="3.2.0">
+  <project timestamp="1676135723537" name="All files">
     <metrics statements="20" coveredstatements="20" conditionals="9" coveredconditionals="8" methods="13" coveredmethods="9" elements="42" coveredelements="37" complexity="0" loc="20" ncloc="20" packages="1" files="3" classes="3"/>
     <file name="gameboard.js" path="/home/stephen/Desktop/Odin Projects/Battleship/src/gameboard.js">
       <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="4"/>
