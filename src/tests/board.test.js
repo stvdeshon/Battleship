@@ -41,4 +41,19 @@ describe("Adding ships", () => {
     grid.placeShip(submarine, 5, 5);
     expect(grid.board[5][5]).toBe("Submarine");
   });
+  test("Attacks are received", () => {
+    grid.placeShip(submarine, 5, 5);
+    grid.receiveAttack(5, 5);
+    expect(grid.board[5][5]).toBe("hit");
+  });
+  test("Misses are tracked", () => {
+    grid.receiveAttack(5, 5);
+    expect(grid.board[5][5]).toBe("miss");
+  });
+  test("Multiple clicks do nothing", () => {
+    grid.placeShip(submarine, 5, 5);
+    grid.receiveAttack(5, 5);
+    grid.receiveAttack(5, 5);
+    expect(grid.board[5][5]).toBe("hit");
+  });
 });

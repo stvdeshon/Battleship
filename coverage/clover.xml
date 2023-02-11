@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676135723537" clover="3.2.0">
-  <project timestamp="1676135723537" name="All files">
-    <metrics statements="20" coveredstatements="20" conditionals="9" coveredconditionals="8" methods="13" coveredmethods="9" elements="42" coveredelements="37" complexity="0" loc="20" ncloc="20" packages="1" files="3" classes="3"/>
+<coverage generated="1676137253104" clover="3.2.0">
+  <project timestamp="1676137253105" name="All files">
+    <metrics statements="25" coveredstatements="25" conditionals="15" coveredconditionals="14" methods="13" coveredmethods="10" elements="53" coveredelements="49" complexity="0" loc="25" ncloc="25" packages="1" files="3" classes="3"/>
     <file name="gameboard.js" path="/home/stephen/Desktop/Odin Projects/Battleship/src/gameboard.js">
-      <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="4"/>
+      <metrics statements="15" coveredstatements="15" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="5"/>
       <line num="3" count="2" type="stmt"/>
       <line num="4" count="2" type="stmt"/>
       <line num="5" count="2" type="stmt"/>
-      <line num="9" count="4" type="stmt"/>
-      <line num="10" count="40" type="stmt"/>
-      <line num="12" count="4" type="stmt"/>
-      <line num="16" count="10" type="cond" truecount="2" falsecount="0"/>
-      <line num="17" count="5" type="stmt"/>
+      <line num="9" count="7" type="stmt"/>
+      <line num="10" count="70" type="stmt"/>
+      <line num="12" count="7" type="stmt"/>
+      <line num="16" count="25" type="cond" truecount="2" falsecount="0"/>
+      <line num="17" count="20" type="stmt"/>
       <line num="19" count="5" type="stmt"/>
-      <line num="24" count="1" type="stmt"/>
+      <line num="24" count="3" type="stmt"/>
+      <line num="31" count="4" type="cond" truecount="4" falsecount="0"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="33" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="34" count="1" type="stmt"/>
+      <line num="36" count="2" type="stmt"/>
     </file>
     <file name="players.js" path="/home/stephen/Desktop/Odin Projects/Battleship/src/players.js">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>

@@ -24,9 +24,18 @@ export default class GameBoard {
     return (this.board[row][col] = ship.name);
   }
 
-  receiveAttack() {
-    //takes coordinates, determines whether a hit or miss, records hits on
-    //corresponding ship, and records misses as well for the DOM
+  receiveAttack(row, col) {
+    //if value == 'hit' or 'miss' return
+    //if null, change value to 'miss
+    //if not null change value to 'hit
+    if (this.board[row][col] === "hit" || this.board[row][col] === "miss") {
+      return;
+    } else if (this.board[row][col] === null) {
+      this.board[row][col] = "miss";
+    } else {
+      this.board[row][col] = "hit";
+      //logic for tracking hits maybe should be here
+    }
   }
 
   gameOver() {
