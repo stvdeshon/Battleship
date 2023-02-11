@@ -13,7 +13,7 @@ export default class GameBoard {
     return this.board;
   }
 
-  addShips(ship) {
+  instantiateShips(ship) {
     if (this.fleet.includes(ship)) {
       return;
     } else {

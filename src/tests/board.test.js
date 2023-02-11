@@ -31,7 +31,7 @@ describe("Adding ships", () => {
   beforeEach(() => {
     grid.generateBoard();
     for (let i = 0; i < fleet.length; i++) {
-      grid.addShips(fleet[i]);
+      grid.instantiateShips(fleet[i]);
     }
   });
   test("Ship is in fleet", () => {
@@ -67,7 +67,7 @@ describe("Game over", () => {
   beforeEach(() => {
     grid.generateBoard();
     for (let i = 0; i < fleet.length; i++) {
-      grid.addShips(fleet[i]);
+      grid.instantiateShips(fleet[i]);
     }
   });
 
