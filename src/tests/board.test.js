@@ -57,3 +57,33 @@ describe("Adding ships", () => {
     expect(grid.board[5][5]).toBe("hit");
   });
 });
+
+describe("Game over", () => {
+  const grid = new GameBoard("player");
+  const cruiser = new Ship("Cruiser", 3);
+  const submarine = new Ship("Submarine", 2);
+  const fleet = [cruiser, submarine];
+
+  beforeEach(() => {
+    grid.generateBoard();
+    for (let i = 0; i < fleet.length; i++) {
+      grid.addShips(fleet[i]);
+    }
+  });
+
+  test("returns false properly", () => {
+    cruiser.hit(0);
+    grid.gameOver();
+    expect(grid.loser).toBe(false);
+  });
+
+  test("returns true properly", () => {
+    cruiser.hit(0);
+    cruiser.hit(1);
+    cruiser.hit(2);
+    submarine.hit(0);
+    submarine.hit(1);
+    grid.gameOver();
+    expect(grid.loser).toBe(true);
+  });
+});

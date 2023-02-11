@@ -3,6 +3,7 @@ export default class GameBoard {
     this.owner = owner;
     this.board = [];
     this.fleet = [];
+    this.loser = false;
   }
 
   generateBoard() {
@@ -39,6 +40,6 @@ export default class GameBoard {
   }
 
   gameOver() {
-    //player loses if this.fleet returns true for every ship's isSunk() method
+    this.loser = this.fleet.every((ship) => ship.isSunk());
   }
 }
