@@ -2,7 +2,7 @@ export default class GameBoard {
   constructor(owner) {
     this.owner = owner;
     this.board = [];
-    this.fleet = [];
+    this.fleet = []; //this is used to hold the board's ship objects to track the win/lose condition
     this.loser = false;
   }
 
