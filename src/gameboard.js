@@ -26,9 +26,6 @@ export default class GameBoard {
   }
 
   receiveAttack(row, col) {
-    //if value == 'hit' or 'miss' return
-    //if null, change value to 'miss
-    //if not null change value to 'hit
     if (this.board[row][col] === "hit" || this.board[row][col] === "miss") {
       return;
     } else if (this.board[row][col] === null) {
@@ -36,6 +33,10 @@ export default class GameBoard {
     } else {
       this.board[row][col] = "hit";
     }
+  }
+
+  random() {
+    return Math.floor(Math.random() * 10);
   }
 
   gameOver() {

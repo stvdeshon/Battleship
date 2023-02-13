@@ -3,14 +3,22 @@ export default class Player {
     this.name = name;
   }
 
-  humanAttack() {
-    //player can click on eligible coordinates
+  random() {
+    return Math.floor(Math.random() * 10);
   }
 
-  computerAttack() {
-    //computer automatically chooses eligible coordinates
+  humanAttack(row, col, opponent) {
+    opponent.receiveAttack(row, col);
+  }
+
+  computerAttack(opponent) {
+    const row = this.random(),
+      col = this.random();
+    const coordinate = opponent.board[row][col];
+    if (coordinate === "hit" || coordinate === "miss") {
+      this.computerAttack(opponent);
+    } else {
+      opponent.receiveAttack(row, col);
+    }
   }
 }
-
-//can either make a single attack function conditional on if player name is 'computer'
-//or make two separate functions and set the logical flow elsewhere
