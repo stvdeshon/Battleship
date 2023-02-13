@@ -1,6 +1,5 @@
 import GameBoard from "../gameboard";
 import Ship from "../ships";
-import Player from "../players";
 
 describe("Game Board class", () => {
   const grid = new GameBoard("player");
@@ -44,7 +43,13 @@ describe("Adding ships", () => {
   test("Ship places vertically", () => {
     submarine.changeOrientation(); //should make it vertical
     grid.placeShip(submarine, 5, 5); //should extend downward to (row 6, column 5)
-    expect(grid.board[6][5]);
+    expect(grid.board[6][5].name).toBe("Submarine");
+  });
+  test("Ships do not overlap each other", () => {
+    grid.placeShip(submarine, 5, 5);
+    submarine.changeOrientation(); //back to horizontal from previous test
+    grid.placeShip(destroyer, 5, 6);
+    expect(grid.board[5][6].name).toBe("Submarine");
   });
   test("Attacks are received", () => {
     grid.placeShip(submarine, 5, 5);
