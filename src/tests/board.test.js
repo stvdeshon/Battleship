@@ -37,9 +37,14 @@ describe("Adding ships", () => {
   test("Ship is in fleet", () => {
     expect(grid.fleet[0].name).toBe("Carrier");
   });
-  test("Ship is in proper place", () => {
+  test("Ship places horizontally", () => {
     grid.placeShip(submarine, 5, 5);
-    expect(grid.board[5][5].name).toBe("Submarine");
+    expect(grid.board[5][6].name).toBe("Submarine");
+  });
+  test("Ship places vertically", () => {
+    submarine.changeOrientation(); //should make it vertical
+    grid.placeShip(submarine, 5, 5); //should extend downward to (row 6, column 5)
+    expect(grid.board[6][5]);
   });
   test("Attacks are received", () => {
     grid.placeShip(submarine, 5, 5);
