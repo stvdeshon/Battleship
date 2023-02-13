@@ -39,7 +39,7 @@ describe("Adding ships", () => {
   });
   test("Ship is in proper place", () => {
     grid.placeShip(submarine, 5, 5);
-    expect(grid.board[5][5]).toBe("Submarine");
+    expect(grid.board[5][5].name).toBe("Submarine");
   });
   test("Attacks are received", () => {
     grid.placeShip(submarine, 5, 5);

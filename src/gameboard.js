@@ -22,7 +22,7 @@ export default class GameBoard {
   }
 
   placeShip(ship, row, col) {
-    return (this.board[row][col] = ship.name);
+    return (this.board[row][col] = ship);
   }
 
   receiveAttack(row, col) {
@@ -35,7 +35,6 @@ export default class GameBoard {
       this.board[row][col] = "miss";
     } else {
       this.board[row][col] = "hit";
-      //logic for tracking hits maybe should be here
     }
   }
 
