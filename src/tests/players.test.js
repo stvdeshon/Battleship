@@ -20,10 +20,16 @@ describe("Computer player class", () => {
     }
   });
 
-  test("Computer can attack", () => {
+  test("Can hit", () => {
     humanBoard.placeShip(submarine, 5, 5);
     computer.computerAttack(humanBoard);
     expect(humanBoard.board[5][5]).toBe("hit");
+  });
+
+  test("Can miss", () => {
+    humanBoard.placeShip(submarine, 5, 8);
+    computer.computerAttack(humanBoard);
+    expect(humanBoard.board[5][5]).toBe("miss");
   });
 });
 
@@ -41,9 +47,15 @@ describe("Human player class", () => {
     }
   });
 
-  test("Human player attacks", () => {
-    computerBoard.placeShip(submarine, 5, 5);
-    human.humanAttack(5, 5, computerBoard);
-    expect(computerBoard.board[5][5]).toBe("hit");
+  test("Can hit", () => {
+    computerBoard.placeShip(submarine, 5, 6);
+    human.humanAttack(computerBoard, 5, 6);
+    expect(computerBoard.board[5][6]).toBe("hit");
+  });
+
+  test("Can miss", () => {
+    computerBoard.placeShip(submarine, 5, 8);
+    human.humanAttack(computerBoard, 5, 6);
+    expect(computerBoard.board[5][6]).toBe("miss");
   });
 });

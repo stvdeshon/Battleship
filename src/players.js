@@ -7,7 +7,7 @@ export default class Player {
     return Math.floor(Math.random() * 10);
   }
 
-  humanAttack(row, col, opponent) {
+  humanAttack(opponent, row, col) {
     opponent.receiveAttack(row, col);
   }
 
