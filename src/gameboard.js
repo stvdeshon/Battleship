@@ -37,24 +37,45 @@ export default class GameBoard {
     }
   }
 
+  computerPlacement() {
+    const row = this.random(),
+      col = this.random();
+    for (let s = 0; s < this.fleet.length; s++) {
+      if (
+        this.fleet[s].orientation === "horizontal" &&
+        !this.isLegal(this.fleet[s], row, col)
+      ) {
+        for (let i = 0; i < this.fleet[s].length; i++) {
+          this.board[row][col + i] = this.fleet[s];
+        }
+      } else {
+        for (
+          let i = 0;
+          i < this.fleet[s].length;
+          i++ && !this.isLegal(this.fleet[s], row, col)
+        ) {
+          this.board[row + i][col] = this.fleet[s];
+        }
+      }
+    }
+  }
+
   isLegal(ship, row, col) {
     if (row < 0 || row > 9 || col < 0 || col > 9) return false;
     if (ship.orientation === "horizontal") {
       if (col + ship.length > 9) return false;
       for (let i = 0; i < ship.length; i++) {
-        if (this.board[row][col + i]) return false; //may have to add to condition here
+        if (this.board[row][col + i]) return false;
       }
     } else if (ship.orientation === "vertical") {
       if (row + ship.length > 9) return false;
       for (let i = 0; i < ship.length; i++) {
-        if (this.board[row + i][col]) return false; //may have to add to condition here
+        if (this.board[row + i][col]) return false;
       }
     }
 
     return true;
   }
-
-  //add automatic random placement for computers
 
   receiveAttack(row, col) {
     if (this.board[row][col] === "hit" || this.board[row][col] === "miss") {
