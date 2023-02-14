@@ -37,6 +37,10 @@ export default class GameBoard {
     }
   }
 
+  random() {
+    return Math.floor(Math.random() * 10);
+  }
+
   computerPlacement() {
     const row = this.random(),
       col = this.random();
@@ -85,10 +89,6 @@ export default class GameBoard {
     } else {
       this.board[row][col] = "hit";
     }
-  }
-
-  random() {
-    return Math.floor(Math.random() * 10);
   }
 
   gameOver() {

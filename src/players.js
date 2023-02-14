@@ -3,12 +3,12 @@ export default class Player {
     this.name = name;
   }
 
-  random() {
-    return Math.floor(Math.random() * 10);
-  }
-
   humanAttack(opponent, row, col) {
     opponent.receiveAttack(row, col);
+  }
+
+  random() {
+    return Math.floor(Math.random() * 10);
   }
 
   computerAttack(opponent) {
