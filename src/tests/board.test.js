@@ -34,7 +34,7 @@ describe("Human can place ships", () => {
   beforeEach(() => {
     grid.generateBoard();
     for (let i = 0; i < fleet.length; i++) {
-      grid.instantiateShips(fleet[i]);
+      grid.assembleFleet(fleet[i]);
     }
   });
   test("Ship is in fleet", () => {
@@ -77,7 +77,7 @@ describe("Ship placement validity", () => {
 
   grid.generateBoard();
   for (let i = 0; i < fleet.length; i++) {
-    grid.instantiateShips(fleet[i]);
+    grid.assembleFleet(fleet[i]);
   }
 
   test("Horizontal overlap prevented", () => {
@@ -105,7 +105,7 @@ describe("Game over", () => {
   beforeEach(() => {
     grid.generateBoard();
     for (let i = 0; i < fleet.length; i++) {
-      grid.instantiateShips(fleet[i]);
+      grid.assembleFleet(fleet[i]);
     }
   });
 
@@ -133,7 +133,7 @@ describe("Computer can place ships", () => {
 
   grid.generateBoard();
   for (let i = 0; i < fleet.length; i++) {
-    grid.instantiateShips(fleet[i]);
+    grid.assembleFleet(fleet[i]);
   }
 
   test("Ship places horizontally", () => {

@@ -16,7 +16,7 @@ describe("Computer player class", () => {
   beforeEach(() => {
     humanBoard.generateBoard();
     for (let i = 0; i < fleet.length; i++) {
-      humanBoard.instantiateShips(fleet[i]);
+      humanBoard.assembleFleet(fleet[i]);
     }
   });
 
@@ -43,7 +43,7 @@ describe("Human player class", () => {
   beforeEach(() => {
     computerBoard.generateBoard();
     for (let i = 0; i < fleet.length; i++) {
-      computerBoard.instantiateShips(fleet[i]);
+      computerBoard.assembleFleet(fleet[i]);
     }
   });
 

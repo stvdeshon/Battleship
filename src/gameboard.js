@@ -14,7 +14,7 @@ export default class GameBoard {
     return this.board;
   }
 
-  instantiateShips(ship) {
+  assembleFleet(ship) {
     if (this.fleet.includes(ship)) {
       return;
     } else {
