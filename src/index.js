@@ -1,1 +1,2 @@
-console.log("it logs");
+import renderBoard from "./ui";
+window.addEventListener("DOMContentLoaded", renderBoard);
