@@ -3,16 +3,17 @@ export default class BoardBuilder {
     //value is null, ship.name, hit or miss
     return `<div class="cell ${value}" data-row="${row}" data-col="${col}" ></div>`;
   }
-  renderBoard(parent, board) {
+  renderBoard(parent, grid) {
     this.resetBoard(parent);
     let matrix = "";
-    for (let i = 0; i < board.length; i++) {
-      for (let j = 0; j < board.length; j++) {
-        let value = board[i][j]; //might need to change
+    for (let i = 0; i < grid.board.length; i++) {
+      for (let j = 0; j < grid.board.length; j++) {
+        console.log("working");
+        let value = grid.board[i][j]; //might need to change
         if (value === null) {
           value = "";
         } else if (value.name) {
-          if (board.owner === "human") {
+          if (grid.owner === "human") {
             value = value.name;
           } else {
             value = "";
