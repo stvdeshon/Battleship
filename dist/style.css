@@ -3,8 +3,60 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 #game-container {
   display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+#player-container,
+#computer-container {
+  width: 200px;
+  height: 200px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.cell {
+  border: 1px solid black;
+}
+
+#ship-select {
+  display: flex;
+  justify-content: center;
+}
+
+/* for visual tests */
+.Submarine {
+  background-color: aqua;
+}
+
+.Carrier {
+  background-color: red;
+}
+
+.Cruiser {
+  background-color: yellowgreen;
+}
+
+.Battleship {
+  background-color: brown;
+}
+
+.Destroyer {
+  background-color: dimgrey;
 }

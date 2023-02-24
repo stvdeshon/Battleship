@@ -41,26 +41,42 @@ export default class GameBoard {
     return Math.floor(Math.random() * 10);
   }
 
+  randomOrientation(ship) {
+    const newDirection = Math.random() < 0.5;
+
+    for (let i = 0; i < this.fleet.length; i++) {
+      if (newDirection) ship.changeOrientation();
+    }
+  }
+
   computerPlacement() {
     const row = this.random(),
       col = this.random();
-    for (let s = 0; s < this.fleet.length; s++) {
-      if (
-        this.fleet[s].orientation === "horizontal" &&
-        !this.isLegal(this.fleet[s], row, col)
+
+    for (let s = 0; s < this.bucket.length; s++) {
+      this.randomOrientation(this.bucket[s]);
+      if (this.bucket.length === 0) return;
+      if (!this.isLegal(this.bucket[s], row, col)) {
+        this.computerPlacement();
+      } else if (
+        this.bucket[s].orientation === "horizontal" &&
+        this.isLegal(this.bucket[s], row, col)
       ) {
-        for (let i = 0; i < this.fleet[s].length; i++) {
-          this.board[row][col + i] = this.fleet[s];
+        // console.log(this.isLegal(this.bucket[s], row, col));
+        for (let i = 0; i < this.bucket[s].length; i++) {
+          this.board[row][col + i] = this.bucket[s];
         }
-      } else {
-        for (
-          let i = 0;
-          i < this.fleet[s].length;
-          i++ && !this.isLegal(this.fleet[s], row, col)
-        ) {
-          this.board[row + i][col] = this.fleet[s];
+      } else if (
+        this.bucket[s].orientation === "vertical" &&
+        this.isLegal(this.bucket[s], row, col)
+      ) {
+        // console.log(this.isLegal(this.bucket[s], row, col));
+        for (let i = 0; i < this.bucket[s].length; i++) {
+          this.board[row + i][col] = this.bucket[s];
         }
       }
+      this.bucket.shift();
+      this.computerPlacement();
     }
   }
 

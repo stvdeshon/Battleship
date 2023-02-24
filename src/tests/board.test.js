@@ -94,6 +94,11 @@ describe("Ship placement validity", () => {
     grid.placeShip(cruiser, 4, 2);
     expect(grid.board[4][2]).toBe(null);
   });
+
+  test("Can not place too close to edge", () => {
+    grid.placeShip(destroyer, 5, 9);
+    expect(grid.board[5][5]).toBe(null);
+  });
 });
 
 describe("Game over", () => {
