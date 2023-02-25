@@ -3,6 +3,16 @@ export default class BoardBuilder {
     //value is null, ship.name, hit or miss
     return `<div class="cell ${value}" data-row="${row}" data-col="${col}" ></div>`;
   }
+
+  appendPieces(shipName) {
+    return `<div class="${shipName}-docked ${shipName}" draggable="true"></div>`;
+  }
+
+  renderPieces(parent, ship) {
+    let pieces = this.appendPieces(ship);
+    parent.innerHTML += pieces;
+  }
+
   renderBoard(parent, grid) {
     this.resetBoard(parent);
     let matrix = "";

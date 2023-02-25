@@ -14,11 +14,18 @@ export default class GameBoard {
     return this.board;
   }
 
+  fillBucket(ship) {
+    if (this.bucket.includes(ship)) {
+      return;
+    } else {
+      this.bucket.push(ship);
+    }
+  }
+
   assembleFleet(ship) {
     if (this.fleet.includes(ship)) {
       return;
     } else {
-      this.bucket.push(ship);
       this.fleet.push(ship);
     }
   }
@@ -62,7 +69,6 @@ export default class GameBoard {
         this.bucket[s].orientation === "horizontal" &&
         this.isLegal(this.bucket[s], row, col)
       ) {
-        // console.log(this.isLegal(this.bucket[s], row, col));
         for (let i = 0; i < this.bucket[s].length; i++) {
           this.board[row][col + i] = this.bucket[s];
         }
@@ -70,7 +76,6 @@ export default class GameBoard {
         this.bucket[s].orientation === "vertical" &&
         this.isLegal(this.bucket[s], row, col)
       ) {
-        // console.log(this.isLegal(this.bucket[s], row, col));
         for (let i = 0; i < this.bucket[s].length; i++) {
           this.board[row + i][col] = this.bucket[s];
         }

@@ -31,32 +31,86 @@ main {
   grid-template-rows: repeat(10, 1fr);
 }
 
+#computer-container {
+  margin-left: 10px;
+}
+
 .cell {
   border: 1px solid black;
 }
 
-#ship-select {
+#buttons {
+  height: 5%;
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
+}
+
+#flip {
+  margin-left: 10px;
+}
+
+#ship-select {
+  border: 1px solid black;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* for visual tests */
-.Submarine {
-  background-color: aqua;
-}
-
-.Carrier {
+.carrier {
   background-color: red;
 }
 
-.Cruiser {
+.cruiser {
   background-color: yellowgreen;
 }
 
-.Battleship {
+.battleship {
   background-color: brown;
 }
 
-.Destroyer {
+.destroyer {
   background-color: dimgrey;
+}
+
+.submarine {
+  background-color: aqua;
+}
+
+.carrier-docked {
+  width: 100px;
+  height: 20px;
+  margin: 3px;
+}
+
+.battleship-docked {
+  width: 80px;
+  height: 20px;
+  margin: 3px;
+}
+
+.cruiser-docked {
+  width: 60px;
+  height: 20px;
+  margin: 3px;
+}
+
+.destroyer-docked {
+  width: 60px;
+  height: 20px;
+  margin: 3px;
+}
+
+.submarine-docked {
+  width: 40px;
+  height: 20px;
+  margin: 3px;
+}
+
+header,
+footer {
+  text-align: center;
+  margin-bottom: 10px;
 }
