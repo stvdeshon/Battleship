@@ -16,20 +16,20 @@ const builder = new BoardBuilder();
 const shipSelect = document.getElementById("ship-select");
 
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("updateme");
-  const fleet = builder.newFleet();
+  console.log("better fleets");
+  const compFleet = builder.newFleet();
+  const userFleet = builder.newFleet();
   userBoard.generateBoard();
   computerBoard.generateBoard();
   //what follows is a nascent gameStart function
-  for (let i = 0; i < fleet.length; i++) {
-    userBoard.fillBucket(fleet[i]); //fills user's bucket for display to dom, to be dragged into the fleet and grid next
-    computerBoard.assembleFleet(fleet[i]); //assemble fleet and fill bucket are separated so the logic
+  for (let i = 0; i < compFleet.length; i++) {
+    userBoard.fillBucket(compFleet[i]); //fills user's bucket for display to dom, to be dragged into the fleet and grid next
+    computerBoard.assembleFleet(compFleet[i]); //assemble fleet and fill bucket are separated so the logic
   }
 
   //the following two loops create a fleet for the user and their bucket and the DOM
-  for (let i = 0; i < fleet.length; i++) {
-    const fleet = builder.newFleet();
-    computerBoard.fillBucket(fleet[i]); //is more flexible for computer and human players
+  for (let i = 0; i < userFleet.length; i++) {
+    computerBoard.fillBucket(userFleet[i]); //is more flexible for computer and human players
   }
   for (let i = 0; i < userBoard.bucket.length; i++) {
     builder.renderPieces(shipSelect, userBoard.bucket[i].name);
