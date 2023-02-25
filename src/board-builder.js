@@ -1,3 +1,5 @@
+import Ship from "./ships";
+
 export default class BoardBuilder {
   appendCells(row, col, value) {
     //value is null, ship.name, hit or miss
@@ -37,5 +39,14 @@ export default class BoardBuilder {
 
   resetBoard(parent) {
     parent.textContent = "";
+  }
+
+  newFleet() {
+    const carrier = new Ship("carrier", 5);
+    const battleship = new Ship("battleship", 4);
+    const destroyer = new Ship("destroyer", 3);
+    const cruiser = new Ship("cruiser", 3);
+    const submarine = new Ship("submarine", 2);
+    return [carrier, battleship, destroyer, cruiser, submarine];
   }
 }

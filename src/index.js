@@ -1,6 +1,6 @@
 import BoardBuilder from "./board-builder";
 import GameBoard from "./gameboard";
-import Ship from "./ships";
+// import Ship from "./ships";
 // import Player from "./players";
 
 //all of this is for testing and will be moved to proper locations later
@@ -13,20 +13,11 @@ const builder = new BoardBuilder();
 
 //returns a new fleet so each board gets its own unique array of ships
 
-function newFleet() {
-  const carrier = new Ship("carrier", 5);
-  const battleship = new Ship("battleship", 4);
-  const destroyer = new Ship("destroyer", 3);
-  const cruiser = new Ship("cruiser", 3);
-  const submarine = new Ship("submarine", 2);
-  return [carrier, battleship, destroyer, cruiser, submarine];
-}
-
 const shipSelect = document.getElementById("ship-select");
 
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("update");
-  const fleet = newFleet();
+  console.log("updateme");
+  const fleet = builder.newFleet();
   userBoard.generateBoard();
   computerBoard.generateBoard();
   //what follows is a nascent gameStart function
@@ -37,7 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //the following two loops create a fleet for the user and their bucket and the DOM
   for (let i = 0; i < fleet.length; i++) {
-    const fleet = newFleet();
+    const fleet = builder.newFleet();
     computerBoard.fillBucket(fleet[i]); //is more flexible for computer and human players
   }
   for (let i = 0; i < userBoard.bucket.length; i++) {
