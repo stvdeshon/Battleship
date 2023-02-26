@@ -16,7 +16,7 @@ const builder = new BoardBuilder();
 const shipSelect = document.getElementById("ship-select");
 
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("better fleets");
+  console.log("they flip");
   const compFleet = builder.newFleet();
   const userFleet = builder.newFleet();
   userBoard.generateBoard();
@@ -41,36 +41,36 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 //below is the ship flipping and placing logic for human players
+//next I must change the individual ship objects orientation attribute
 
 const flipBtn = document.getElementById("flip");
 
-let angle = 0;
-
 function flip() {
   const bucket = Array.from(shipSelect.children);
-  angle === 0 ? (angle = 90) : (angle = 0);
-
-  bucket.forEach((ship) => (ship.style.transform = `rotate(${angle}deg)`));
-  console.log(userBoard.bucket);
+  for (let i = 0; i < bucket.length; i++) {
+    console.log(bucket[i]);
+    if (bucket[i].classList.contains(userBoard.bucket[i].name)) {
+      bucket[i].classList.toggle(
+        `${userBoard.bucket[i].name}-docked-horizontal`
+      );
+      bucket[i].classList.toggle(`${userBoard.bucket[i].name}-docked-vertical`);
+    }
+  }
 }
 
 flipBtn.addEventListener("click", flip);
 
 /*
 let draggedShip;
-
 function dragStart(e) {
   console.log(e.target);
 }
-
 function dragOver(e) {
   e.preventDefault();
 }
-
 function dropShip(e) {
   const startId = e.target.id;
   // const ship = 
 } 
-
 bucket.forEach((ship) => ship.addEventListener("dragstart", dragStart));
 */

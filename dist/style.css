@@ -79,33 +79,63 @@ main {
   background-color: aqua;
 }
 
-.carrier-docked {
+.carrier-docked-horizontal {
   width: 100px;
   height: 20px;
   margin: 3px;
 }
 
-.battleship-docked {
+.carrier-docked-vertical {
+  width: 20px;
+  height: 100px;
+  margin: 3px;
+}
+
+.battleship-docked-horizontal {
   width: 80px;
   height: 20px;
   margin: 3px;
 }
 
-.cruiser-docked {
+.battleship-docked-vertical {
+  width: 20px;
+  height: 80px;
+  margin: 3px;
+}
+
+.cruiser-docked-horizontal {
   width: 60px;
   height: 20px;
   margin: 3px;
 }
 
-.destroyer-docked {
+.cruiser-docked-vertical {
+  width: 20px;
+  height: 60px;
+  margin: 3px;
+}
+
+.destroyer-docked-horizontal {
   width: 60px;
   height: 20px;
   margin: 3px;
 }
 
-.submarine-docked {
+.destroyer-docked-vertical {
+  width: 20px;
+  height: 60px;
+  margin: 3px;
+}
+
+.submarine-docked-horizontal {
   width: 40px;
   height: 20px;
+  margin: 3px;
+}
+
+.submarine-docked-vertical {
+  width: 20px;
+  height: 40px;
   margin: 3px;
 }
 

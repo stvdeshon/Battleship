@@ -7,7 +7,7 @@ export default class BoardBuilder {
   }
 
   appendPieces(shipName) {
-    return `<div class="${shipName}-docked ${shipName}" draggable="true"></div>`;
+    return `<div class="${shipName}-docked-horizontal ${shipName}" draggable="true"></div>`;
   }
 
   renderPieces(parent, ship) {
