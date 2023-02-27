@@ -48,7 +48,9 @@ const flipBtn = document.getElementById("flip");
 function flip() {
   const bucket = Array.from(shipSelect.children);
   for (let i = 0; i < bucket.length; i++) {
-    console.log(bucket[i]);
+    // console.log(bucket[i]);
+    userBoard.bucket[i].changeOrientation(); //will need to empty bucket to prevent this from affecting ships in the gameboard
+    console.log(userBoard.bucket[i].orientation);
     if (bucket[i].classList.contains(userBoard.bucket[i].name)) {
       bucket[i].classList.toggle(
         `${userBoard.bucket[i].name}-docked-horizontal`
