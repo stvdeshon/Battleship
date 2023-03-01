@@ -1,5 +1,6 @@
 import BoardBuilder from "./board-builder";
 import GameBoard from "./gameboard";
+import DragDrop from "./dragDrop";
 // import Ship from "./ships";
 // import Player from "./players";
 
@@ -14,9 +15,10 @@ const builder = new BoardBuilder();
 //returns a new fleet so each board gets its own unique array of ships
 
 const shipSelect = document.getElementById("ship-select");
+const drag = DragDrop(userBoard, userBoardDiv);
 
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("they flip");
+  console.log("new");
   const compFleet = builder.newFleet();
   const userFleet = builder.newFleet();
   userBoard.generateBoard();
@@ -34,10 +36,10 @@ window.addEventListener("DOMContentLoaded", () => {
   for (let i = 0; i < userBoard.bucket.length; i++) {
     builder.renderPieces(shipSelect, userBoard.bucket[i].name);
   }
-
   computerBoard.computerPlacement();
   builder.renderBoard(userBoardDiv, userBoard);
   builder.renderBoard(compBoardDiv, computerBoard);
+  drag.combineEvents();
 });
 
 //below is the ship flipping and placing logic for human players
@@ -48,16 +50,15 @@ const flipBtn = document.getElementById("flip");
 function flip() {
   const bucket = Array.from(shipSelect.children);
   for (let i = 0; i < bucket.length; i++) {
-    // console.log(bucket[i]);
     userBoard.bucket[i].changeOrientation(); //will need to empty bucket to prevent this from affecting ships in the gameboard
     console.log(userBoard.bucket[i].orientation);
-    if (bucket[i].classList.contains(userBoard.bucket[i].name)) {
-      bucket[i].classList.toggle(
-        `${userBoard.bucket[i].name}-docked-horizontal`
-      );
-      bucket[i].classList.toggle(`${userBoard.bucket[i].name}-docked-vertical`);
+    if (bucket[i].classList.contains("docked")) {
+      bucket[i].classList.toggle(`${userBoard.bucket[i].name}-horizontal`);
+      bucket[i].classList.toggle(`${userBoard.bucket[i].name}-vertical`);
     }
   }
+  // console.log(bucket);
+  console.log(computerBoard.board);
 }
 
 flipBtn.addEventListener("click", flip);

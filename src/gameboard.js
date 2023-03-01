@@ -31,17 +31,18 @@ export default class GameBoard {
   }
 
   placeShip(ship, row, col) {
+    let index = this.bucket.indexOf(ship);
     if (!this.isLegal(ship, row, col)) return;
     if (ship.orientation === "horizontal") {
       for (let i = 0; i < ship.length; i++) {
         this.board[row][col + i] = ship;
-        //may or may not need to shift() this.bucket for human players
       }
     } else {
       for (let i = 0; i < ship.length; i++) {
         this.board[row + i][col] = ship;
       }
     }
+    this.bucket.splice(index, 1);
   }
 
   random() {

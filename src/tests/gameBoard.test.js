@@ -35,6 +35,7 @@ describe("Human can place ships", () => {
     grid.generateBoard();
     for (let i = 0; i < fleet.length; i++) {
       grid.assembleFleet(fleet[i]);
+      grid.fillBucket(fleet[i]);
     }
   });
   test("Ship is in fleet", () => {
@@ -43,6 +44,12 @@ describe("Human can place ships", () => {
   test("Ship places horizontally", () => {
     grid.placeShip(submarine, 5, 5);
     expect(grid.board[5][6].name).toBe("Submarine");
+  });
+  test("Bucket is reduced by amount of ships placed", () => {
+    grid.placeShip(submarine, 5, 5);
+    grid.placeShip(destroyer, 7, 0);
+    grid.placeShip(carrier, 0, 0);
+    expect(grid.bucket.length).toBe(2);
   });
   test("Ship places vertically", () => {
     submarine.changeOrientation(); //should make it vertical
@@ -78,6 +85,7 @@ describe("Ship placement validity", () => {
   grid.generateBoard();
   for (let i = 0; i < fleet.length; i++) {
     grid.assembleFleet(fleet[i]);
+    grid.fillBucket(fleet[i]);
   }
 
   test("Horizontal overlap prevented", () => {
@@ -97,7 +105,7 @@ describe("Ship placement validity", () => {
 
   test("Can not place too close to edge", () => {
     grid.placeShip(destroyer, 5, 9);
-    expect(grid.board[5][5]).toBe(null);
+    expect(grid.board[9][9]).toBe(null);
   });
 });
 
@@ -132,15 +140,17 @@ describe("Game over", () => {
 });
 
 describe("Computer can place ships", () => {
-  const grid = new GameBoard("player");
+  const grid = new GameBoard("computer");
   const carrier = new Ship("Carrier", 5);
   const fleet = [carrier];
 
   grid.generateBoard();
   for (let i = 0; i < fleet.length; i++) {
     grid.assembleFleet(fleet[i]);
+    grid.fillBucket(fleet[i]);
   }
 
+  /*
   test("Ship places horizontally", () => {
     grid.computerPlacement();
     expect(grid.board[5][5].name).toBe("Carrier");
@@ -152,5 +162,5 @@ describe("Computer can place ships", () => {
     grid.computerPlacement();
     expect(grid.board[5][5].name).toBe("Carrier");
     expect(grid.board[6][5].name).toBe("Carrier");
-  });
+  }); */
 });

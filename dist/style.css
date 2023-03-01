@@ -59,7 +59,7 @@ main {
 }
 
 /* for visual tests */
-.carrier {
+/* .carrier {
   background-color: red;
 }
 
@@ -77,63 +77,83 @@ main {
 
 .submarine {
   background-color: aqua;
+} */
+
+#carrier {
+  background-color: red;
 }
 
-.carrier-docked-horizontal {
+#cruiser {
+  background-color: yellowgreen;
+}
+
+#battleship {
+  background-color: brown;
+}
+
+#destroyer {
+  background-color: dimgrey;
+}
+
+#submarine {
+  background-color: aqua;
+}
+
+.carrier-horizontal {
   width: 100px;
   height: 20px;
   margin: 3px;
 }
 
-.carrier-docked-vertical {
+.carrier-vertical {
   width: 20px;
   height: 100px;
   margin: 3px;
 }
 
-.battleship-docked-horizontal {
+.battleship-horizontal {
   width: 80px;
   height: 20px;
   margin: 3px;
 }
 
-.battleship-docked-vertical {
+.battleship-vertical {
   width: 20px;
   height: 80px;
   margin: 3px;
 }
 
-.cruiser-docked-horizontal {
+.cruiser-horizontal {
   width: 60px;
   height: 20px;
   margin: 3px;
 }
 
-.cruiser-docked-vertical {
+.cruiser-vertical {
   width: 20px;
   height: 60px;
   margin: 3px;
 }
 
-.destroyer-docked-horizontal {
+.destroyer-horizontal {
   width: 60px;
   height: 20px;
   margin: 3px;
 }
 
-.destroyer-docked-vertical {
+.destroyer-vertical {
   width: 20px;
   height: 60px;
   margin: 3px;
 }
 
-.submarine-docked-horizontal {
+.submarine-horizontal {
   width: 40px;
   height: 20px;
   margin: 3px;
 }
 
-.submarine-docked-vertical {
+.submarine-vertical {
   width: 20px;
   height: 40px;
   margin: 3px;

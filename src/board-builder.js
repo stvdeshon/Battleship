@@ -7,7 +7,7 @@ export default class BoardBuilder {
   }
 
   appendPieces(shipName) {
-    return `<div class="${shipName}-docked-horizontal ${shipName}" draggable="true"></div>`;
+    return `<div id="${shipName}" class="${shipName}-horizontal docked" data-type="${shipName}" draggable="true"></div>`;
   }
 
   renderPieces(parent, ship) {
@@ -20,7 +20,7 @@ export default class BoardBuilder {
     let matrix = "";
     for (let i = 0; i < grid.board.length; i++) {
       for (let j = 0; j < grid.board.length; j++) {
-        let value = grid.board[i][j]; //might need to change
+        let value = grid.board[i][j];
         if (value === null) {
           value = "";
         } else if (value !== null && typeof value === "object") {
