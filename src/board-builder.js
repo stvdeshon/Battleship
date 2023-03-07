@@ -11,7 +11,7 @@ export default class BoardBuilder {
   }
 
   renderPieces(parent, ship) {
-    let pieces = this.appendPieces(ship);
+    let pieces = this.appendPieces(ship.name);
     parent.innerHTML += pieces;
   }
 

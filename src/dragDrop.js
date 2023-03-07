@@ -39,9 +39,13 @@ const DragDrop = (userBoardClass, userBoardDiv) => {
 
     const row = Number(cell.dataset.row);
     const col = Number(cell.dataset.col);
-    userBoardClass.placeShip(ship, row, col);
-    draggedShip.parentElement.removeChild(draggedShip); //this part works but the ships don't append yet
-    console.log("drop");
+    const legal = userBoardClass.placeShip(ship, row, col);
+    if (legal) {
+      userBoardClass.placeShip(ship, row, col);
+      console.log(userBoardClass.bucket);
+      combineEvents();
+      draggedShip.parentElement.removeChild(draggedShip);
+    }
   }
 
   function combineEvents() {

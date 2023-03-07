@@ -18,7 +18,7 @@ const shipSelect = document.getElementById("ship-select");
 const drag = DragDrop(userBoard, userBoardDiv);
 
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("new");
+  console.log("buc");
   const compFleet = builder.newFleet();
   const userFleet = builder.newFleet();
   userBoard.generateBoard();
@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
     computerBoard.fillBucket(userFleet[i]); //is more flexible for computer and human players
   }
   for (let i = 0; i < userBoard.bucket.length; i++) {
-    builder.renderPieces(shipSelect, userBoard.bucket[i].name);
+    builder.renderPieces(shipSelect, userBoard.bucket[i]);
   }
   computerBoard.computerPlacement();
   builder.renderBoard(userBoardDiv, userBoard);
@@ -57,8 +57,6 @@ function flip() {
       bucket[i].classList.toggle(`${userBoard.bucket[i].name}-vertical`);
     }
   }
-  // console.log(bucket);
-  console.log(computerBoard.board);
 }
 
 flipBtn.addEventListener("click", flip);
