@@ -42,7 +42,7 @@ const DragDrop = (userBoardClass, userBoardDiv) => {
     const legal = userBoardClass.placeShip(ship, row, col);
     if (legal) {
       userBoardClass.placeShip(ship, row, col);
-      console.log(userBoardClass.bucket);
+      console.log(userBoardClass.fleet);
       combineEvents();
       draggedShip.parentElement.removeChild(draggedShip);
     }
