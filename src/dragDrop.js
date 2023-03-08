@@ -1,4 +1,6 @@
+import BoardBuilder from "./board-builder";
 const DragDrop = (userBoardClass, userBoardDiv) => {
+  const builder = new BoardBuilder();
   let draggedShip;
 
   function dragStart(e) {
@@ -42,7 +44,7 @@ const DragDrop = (userBoardClass, userBoardDiv) => {
     const legal = userBoardClass.placeShip(ship, row, col);
     if (legal) {
       userBoardClass.placeShip(ship, row, col);
-      console.log(userBoardClass.fleet);
+      builder.renderBoard(userBoardDiv, userBoardClass);
       combineEvents();
       draggedShip.parentElement.removeChild(draggedShip);
     }

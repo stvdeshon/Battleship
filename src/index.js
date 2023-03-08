@@ -4,8 +4,6 @@ import DragDrop from "./dragDrop";
 // import Ship from "./ships";
 // import Player from "./players";
 
-//all of this is for testing and will be moved to proper locations later
-
 const userBoardDiv = document.getElementById("player-container");
 const compBoardDiv = document.getElementById("computer-container");
 const userBoard = new GameBoard("human");
@@ -60,18 +58,3 @@ function flip() {
 }
 
 flipBtn.addEventListener("click", flip);
-
-/*
-let draggedShip;
-function dragStart(e) {
-  console.log(e.target);
-}
-function dragOver(e) {
-  e.preventDefault();
-}
-function dropShip(e) {
-  const startId = e.target.id;
-  // const ship = 
-} 
-bucket.forEach((ship) => ship.addEventListener("dragstart", dragStart));
-*/

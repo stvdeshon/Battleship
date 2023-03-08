@@ -24,11 +24,10 @@ export default class BoardBuilder {
         if (value === null) {
           value = "";
         } else if (value !== null && typeof value === "object") {
-          if (grid.owner === "computer") {
-            //this condition is temporary and will need to be rethought later
-            value = value.name;
+          if (grid.owner === "human") {
+            value = `${value.name} player-${value.name}`;
           } else {
-            value = "";
+            value = `${value.name} computer-${value.name}`;
           }
         }
         matrix += this.appendCells(i, j, value);

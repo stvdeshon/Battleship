@@ -59,25 +59,25 @@ main {
 }
 
 /* for visual tests */
-/* .carrier {
+.player-carrier {
   background-color: red;
 }
 
-.cruiser {
+.player-cruiser {
   background-color: yellowgreen;
 }
 
-.battleship {
+.player-battleship {
   background-color: brown;
 }
 
-.destroyer {
+.player-destroyer {
   background-color: dimgrey;
 }
 
-.submarine {
+.player-submarine {
   background-color: aqua;
-} */
+}
 
 #carrier {
   background-color: red;
