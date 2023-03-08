@@ -46,6 +46,7 @@ const DragDrop = (userBoardClass, userBoardDiv) => {
       combineEvents();
       draggedShip.parentElement.removeChild(draggedShip);
     }
+    console.log(userBoardClass.board);
   }
 
   function combineEvents() {
