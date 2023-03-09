@@ -14,8 +14,8 @@ export default class Player {
   computerAttack(opponentBoard) {
     const row = this.random(),
       col = this.random();
-    const coordinate = opponentBoard.board[row][col];
-    if (coordinate === "hit" || coordinate === "miss") {
+    const target = opponentBoard.board[row][col];
+    if (target === "hit" || target === "miss") {
       this.computerAttack(opponentBoard);
     } else {
       opponentBoard.receiveAttack(row, col);
