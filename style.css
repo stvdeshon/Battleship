@@ -33,10 +33,19 @@ main {
 
 #computer-container {
   margin-left: 10px;
+  visibility: hidden;
 }
 
 .cell {
   border: 1px solid black;
+}
+
+.hit {
+  background-color: purple;
+}
+
+.miss {
+  background-color: blanchedalmond;
 }
 
 #buttons {
