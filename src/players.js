@@ -3,22 +3,22 @@ export default class Player {
     this.name = name;
   }
 
-  humanAttack(opponent, row, col) {
-    opponent.receiveAttack(row, col);
+  attack(opponentBoardBoard, row, col) {
+    opponentBoardBoard.receiveAttack(row, col);
   }
 
   random() {
     return Math.floor(Math.random() * 10);
   }
 
-  computerAttack(opponent) {
+  computerAttack(opponentBoard) {
     const row = this.random(),
       col = this.random();
-    const coordinate = opponent.board[row][col];
+    const coordinate = opponentBoard.board[row][col];
     if (coordinate === "hit" || coordinate === "miss") {
-      this.computerAttack(opponent);
+      this.computerAttack(opponentBoard);
     } else {
-      opponent.receiveAttack(row, col);
+      opponentBoard.receiveAttack(row, col);
     }
   }
 }

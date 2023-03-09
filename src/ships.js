@@ -6,16 +6,14 @@ export default class Ship {
     this.hits = [];
   }
 
-  hit(index) {
-    if (this.hits.includes(index) || index < 0 || index >= this.length) {
-      return;
-    } else {
-      this.hits.push(index);
-    }
+  hit(counter) {
+    this.hits.push(counter);
   }
 
   isSunk() {
-    return this.hits.length === this.length;
+    if (this.hits.length === this.length) {
+      return true;
+    }
   }
 
   changeOrientation() {

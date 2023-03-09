@@ -112,11 +112,16 @@ export default class GameBoard {
     } else if (this.board[row][col] === null) {
       this.board[row][col] = "miss";
     } else {
+      for (let i = 0; i < this.fleet.length; i++) {
+        if (this.board[row][col].name === this.fleet[i].name) {
+          this.fleet[i].hit("hit");
+        }
+      }
       this.board[row][col] = "hit";
     }
   }
 
   gameOver() {
-    this.loser = this.fleet.every((ship) => ship.isSunk());
+    return (this.loser = this.fleet.every((ship) => ship.isSunk()));
   }
 }

@@ -49,13 +49,13 @@ describe("Human player class", () => {
 
   test("Can hit", () => {
     computerBoard.placeShip(submarine, 5, 6);
-    human.humanAttack(computerBoard, 5, 6);
+    human.attack(computerBoard, 5, 6);
     expect(computerBoard.board[5][6]).toBe("hit");
   });
 
   test("Can miss", () => {
     computerBoard.placeShip(submarine, 5, 8);
-    human.humanAttack(computerBoard, 5, 6);
+    human.attack(computerBoard, 5, 6);
     expect(computerBoard.board[5][6]).toBe("miss");
   });
 });

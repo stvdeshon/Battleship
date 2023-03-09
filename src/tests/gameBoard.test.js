@@ -149,18 +149,4 @@ describe("Computer can place ships", () => {
     grid.assembleFleet(fleet[i]);
     grid.fillBucket(fleet[i]);
   }
-
-  /*
-  test("Ship places horizontally", () => {
-    grid.computerPlacement();
-    expect(grid.board[5][5].name).toBe("Carrier");
-    expect(grid.board[5][7].name).toBe("Carrier");
-  });
-
-  test("Ship places vertically", () => {
-    carrier.changeOrientation();
-    grid.computerPlacement();
-    expect(grid.board[5][5].name).toBe("Carrier");
-    expect(grid.board[6][5].name).toBe("Carrier");
-  }); */
 });
