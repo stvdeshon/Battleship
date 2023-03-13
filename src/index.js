@@ -1,7 +1,6 @@
 import BoardBuilder from "./board-builder";
 import GameBoard from "./gameboard";
 import DragDrop from "./dragDrop";
-// import Ship from "./ships";
 import Player from "./players";
 
 const userBoardDiv = document.getElementById("player-container");
@@ -12,8 +11,6 @@ const userBoard = new GameBoard("human");
 const computer = new Player("computer");
 const computerBoard = new GameBoard("computer");
 
-//returns a new fleet so each board gets its own unique array of ships
-
 const shipSelect = document.getElementById("ship-select");
 const drag = DragDrop(userBoard, userBoardDiv);
 
@@ -22,10 +19,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const userFleet = builder.newFleet();
   userBoard.generateBoard();
   computerBoard.generateBoard();
-  //what follows is a nascent gameStart function
+
   for (let i = 0; i < compFleet.length; i++) {
-    computerBoard.fillBucket(compFleet[i]); //fills user's bucket for display to dom, to be dragged into the fleet and grid next
-    computerBoard.assembleFleet(compFleet[i]); //assemble fleet and fill bucket are separated so the logic
+    computerBoard.fillBucket(compFleet[i]);
+    computerBoard.assembleFleet(compFleet[i]);
   }
 
   //the following two loops create a fleet for the user and their bucket and the DOM
@@ -41,9 +38,6 @@ window.addEventListener("DOMContentLoaded", () => {
   drag.combineEvents();
 });
 
-//below is the ship flipping and placing logic for human players
-//next I must change the individual ship objects orientation attribute
-
 const startBtn = document.getElementById("start");
 const flipBtn = document.getElementById("flip");
 
@@ -58,7 +52,7 @@ startBtn.addEventListener("click", () => {
 flipBtn.addEventListener("click", () => {
   const bucket = Array.from(shipSelect.children);
   for (let i = 0; i < bucket.length; i++) {
-    userBoard.bucket[i].changeOrientation(); //will need to empty bucket to prevent this from affecting ships in the gameboard
+    userBoard.bucket[i].changeOrientation();
     if (bucket[i].classList.contains("docked")) {
       bucket[i].classList.toggle(`${userBoard.bucket[i].name}-horizontal`);
       bucket[i].classList.toggle(`${userBoard.bucket[i].name}-vertical`);
@@ -66,12 +60,43 @@ flipBtn.addEventListener("click", () => {
   }
 });
 
-// userBoardDiv.addEventListener('')
+const restart = document.getElementById("restart");
+restart.addEventListener("click", () => {
+  const compFleet = builder.newFleet();
+  const userFleet = builder.newFleet();
+  userBoard.fleet = [];
+  computerBoard.fleet = [];
+  userBoard.generateBoard();
+  computerBoard.generateBoard();
+
+  for (let i = 0; i < compFleet.length; i++) {
+    computerBoard.fillBucket(compFleet[i]);
+    computerBoard.assembleFleet(compFleet[i]);
+  }
+
+  //the following two loops create a fleet for the user and their bucket and the DOM
+  for (let i = 0; i < userFleet.length; i++) {
+    userBoard.fillBucket(userFleet[i]);
+  }
+  for (let i = 0; i < userBoard.bucket.length; i++) {
+    builder.renderPieces(shipSelect, userBoard.bucket[i]);
+  }
+  computerBoard.computerPlacement();
+  builder.renderBoard(userBoardDiv, userBoard);
+  builder.renderBoard(compBoardDiv, computerBoard);
+  drag.combineEvents();
+  document.getElementById("result").style.visibility = "hidden";
+  startBtn.style.visibility = "visible";
+  flipBtn.style.visibility = "visible";
+});
 
 compBoardDiv.addEventListener("click", (e) => {
   const target = e.target;
   const row = target.dataset.row;
   const col = target.dataset.col;
+  const result = document.getElementById("result");
+  const winner = document.getElementById("winner");
+  console.log(computerBoard.fleet);
   if (target.classList.contains("hit") || target.classList.contains("miss"))
     return;
   user.attack(computerBoard, row, col);
@@ -82,9 +107,12 @@ compBoardDiv.addEventListener("click", (e) => {
   }
   computer.computerAttack(userBoard);
   builder.renderBoard(userBoardDiv, userBoard);
-  console.log(userBoard.fleet);
-  console.log(computerBoard.fleet);
-  console.log(computerBoard.gameOver());
-  if (computerBoard.gameOver() === true) return console.log("You won!");
-  if (userBoard.gameOver() === true) return console.log("You lost!");
+  if (computerBoard.gameOver() === true) {
+    result.style.visibility = "visible";
+    winner.textContent = "You won!";
+  }
+  if (userBoard.gameOver() === true) {
+    result.style.visibility = "visible";
+    winner.textContent = "You lose...";
+  }
 });
