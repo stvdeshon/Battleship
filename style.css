@@ -14,12 +14,47 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  position: relative;
+}
+
+.result {
+  text-align: center;
+  font-size: 5rem;
+}
+
+header,
+footer {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 #game-container {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+}
+
+#result {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  text-align: center;
+  font-size: 5rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 2s ease;
+  background-color: cyan;
+}
+
+#restart {
+  background-color: cornsilk;
+  border-radius: 5px;
 }
 
 #player-container,
@@ -166,10 +201,4 @@ main {
   width: 20px;
   height: 40px;
   margin: 3px;
-}
-
-header,
-footer {
-  text-align: center;
-  margin-bottom: 10px;
 }
