@@ -86,6 +86,7 @@ restart.addEventListener("click", () => {
   builder.renderBoard(compBoardDiv, computerBoard);
   drag.combineEvents();
   document.getElementById("result").style.visibility = "hidden";
+  compBoardDiv.style.visibility = "hidden";
   startBtn.style.visibility = "visible";
   flipBtn.style.visibility = "visible";
 });
